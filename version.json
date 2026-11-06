@@ -1,9 +1,9 @@
 {
   "firmware": {
-    "version": "0.7.5",
+    "version": "0.7.6",
     "url": "https://raw.githubusercontent.com/jcab41-sys/JC_Desktop_Pad_Releases/main/firmware.bin",
     "notes": [
-      "Affichage de contrôle de la détection USB / Bluetooth"
+      "Liaison automatique validée ; affichage de contrôle retiré"
     ]
   },
   "app": {
