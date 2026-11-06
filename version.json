@@ -1,9 +1,9 @@
 {
   "firmware": {
-    "version": "0.7.3",
+    "version": "0.7.4",
     "url": "https://raw.githubusercontent.com/jcab41-sys/JC_Desktop_Pad_Releases/main/firmware.bin",
     "notes": [
-      "Liaison automatique : détection du PC par les trames USB (corrige le chargeur secteur)"
+      "Liaison automatique : nouvelle détection du PC (corrige le chargeur secteur)"
     ]
   },
   "app": {
