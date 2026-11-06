@@ -2,6 +2,13 @@
   "firmware": {
     "version": "0.7.2",
     "url": "https://raw.githubusercontent.com/jcab41-sys/JC_Desktop_Pad_Releases/main/firmware.bin",
-    "notes": ["Liaison automatique USB / Bluetooth améliorée"]
+    "notes": [
+      "Liaison automatique USB / Bluetooth améliorée"
+    ]
+  },
+  "app": {
+    "version": "0.15.1",
+    "url": "https://github.com/jcab41-sys/JC_Desktop_Pad_Releases/releases/download/v0.15.1/JCharles_desktop_Setup.exe",
+    "page": "https://github.com/jcab41-sys/JC_Desktop_Pad_Releases/releases/tag/v0.15.1"
   }
 }
