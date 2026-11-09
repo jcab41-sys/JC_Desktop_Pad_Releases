@@ -7,12 +7,12 @@
     ]
   },
   "app": {
-    "version": "0.18.7",
-    "url": "https://github.com/jcab41-sys/JC_Desktop_Pad_Releases/releases/download/v0.18.7/JCharles_desktop_Setup.exe",
-    "page": "https://github.com/jcab41-sys/JC_Desktop_Pad_Releases/releases/tag/v0.18.7"
+    "version": "0.18.8",
+    "url": "https://github.com/jcab41-sys/JC_Desktop_Pad_Releases/releases/download/v0.18.8/JCharles_desktop_Setup.exe",
+    "page": "https://github.com/jcab41-sys/JC_Desktop_Pad_Releases/releases/tag/v0.18.8"
   },
   "firmware_v2": {
-    "version": "2.3.6",
+    "version": "2.3.7",
     "url": "https://raw.githubusercontent.com/jcab41-sys/JC_Desktop_Pad_Releases/main/firmware_v2.bin"
   }
 }
