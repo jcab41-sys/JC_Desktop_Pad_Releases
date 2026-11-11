@@ -92,6 +92,8 @@ micro_mur = 1.6;              // épaisseur du collier
 micro_griffe = 0.8;           // retenue des griffes
 micro_h = 3.2;                // hauteur du collier sous le couvercle
 micro_fente = 2.4;            // fentes du collier (souplesse + sortie des fils)
+micro_chambre_d = 10;         // dégagement devant la carte (boîtier du micro + passage du son)
+micro_chambre_h = 1.2;        // profondeur de ce dégagement (laisse 2 mm de façade)
 // la carte rectangulaire est plus large : on la recule un peu du bord arrondi du couvercle
 micro_decal = (micro_forme == "rond") ? [0, 0] : [-3, 0];
 
@@ -303,7 +305,7 @@ module micro_berceau() {
         translate([0, 0, -micro_h - 0.2]) linear_extrude(micro_h - micro_log - micro_ep - micro_griffe + 0.2)
             micro2d(-micro_griffe);
         // fentes : les branches peuvent s'écarter, et les fils sortent par là
-        for (a = (micro_forme == "rond") ? [60, 180, 300] : [0, 180])
+        for (a = (micro_forme == "rond") ? [45, 135, 225, 315] : [0, 180])
             rotate(a) translate([-micro_fente/2, 0, -micro_h - 0.1])
                 cube([micro_fente, micro_carte[0], micro_h + 0.2]);
     }
@@ -731,6 +733,9 @@ module couvercle_superieur() {
         translate([c_micro[0], c_micro[1], epaisseur_couvercle - 0.6])
             cylinder(h = 0.7, d1 = d_trou_micro, d2 = d_trou_micro + 1.2, $fn = 32);
         translate([c_micro[0], c_micro[1], -0.1]) linear_extrude(micro_log + 0.1) micro2d(0);
+        // dégagement devant la carte : le boîtier du micro ne touche pas la façade, et le son passe
+        translate([c_micro[0], c_micro[1], micro_log - 0.01])
+            cylinder(h = micro_chambre_h + 0.01, d = micro_chambre_d, $fn = 48);
         }
         for (p = coins_couv) {
             trou(p, 3.4);
@@ -886,6 +891,8 @@ echo(str("Chargeur : carte de Y = ", ch_y_avant, " à ", ch_y_arriere, ", dessou
 echo(str("Boîtier : ", longueur, " x ", largeur, " mm, arrière ", hauteur_arriere, " mm"));
 echo(str("Touches : ", fond_reel, " mm de plastique sous le doigt, pastille ", 
          epaisseur_couvercle - z_bas_touche, " mm de haut (dépasse de ", -z_bas_touche, " mm sous le couvercle)"));
+if (micro_forme != "aucun" && micro_log + micro_chambre_h > epaisseur_couvercle - 1.5)
+    echo("ATTENTION : façade trop mince devant le micro");
 echo(str("Micro : trou à ", micro_dist, " mm en avant de l'axe du joystick ; berceau ",
          micro_forme, " hors tout ", (micro_forme == "rond") ? micro_carte_d + 2 * micro_mur : micro_carte[0] + 2 * micro_mur,
          " mm, saillie ", micro_h, " mm sous le couvercle"));
